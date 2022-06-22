@@ -1,6 +1,7 @@
 package com.mrkevin574.starwars.presentation
 
 import androidx.compose.runtime.mutableStateOf
+import androidx.lifecycle.ViewModel
 import com.mrkevin574.starwars.domain.StarWarsRepository
 import com.mrkevin574.starwars.domain.model.People
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -9,7 +10,7 @@ import javax.inject.Inject
 @HiltViewModel
 class StarWarsViewModel @Inject constructor(
     private val repository: StarWarsRepository
-) {
+) : ViewModel(){
 
     fun onEvent(event: Event)
     {
