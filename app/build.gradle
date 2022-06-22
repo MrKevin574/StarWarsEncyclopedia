@@ -72,7 +72,9 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
 
     //Pager
-    implementation "com.google.accompanist:accompanist-pager:0.24.11-rc"
+    implementation "com.google.accompanist:accompanist-pager:$accompanist_version"
     //Pager Indicators
-    implementation "com.google.accompanist:accompanist-pager-indicators:0.24.11-rc"
+    implementation "com.google.accompanist:accompanist-pager-indicators:$accompanist_version"
+    //SystemUI Color
+    implementation "com.google.accompanist:accompanist-systemuicontroller:$accompanist_version"
 }

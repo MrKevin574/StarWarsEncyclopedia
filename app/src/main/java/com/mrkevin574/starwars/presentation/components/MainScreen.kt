@@ -1,14 +1,12 @@
 package com.mrkevin574.starwars.presentation.components
 
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
-import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.compose.ui.unit.dp
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.pagerTabIndicatorOffset
@@ -21,11 +19,12 @@ import com.mrkevin574.starwars.presentation.planet.PlanetScreen
 import com.mrkevin574.starwars.presentation.species.SpeciesScreen
 import com.mrkevin574.starwars.presentation.starships.StarshipsScreen
 import com.mrkevin574.starwars.presentation.ui.theme.StarWarsTheme
+import com.mrkevin574.starwars.presentation.ui.theme.YellowStarWars
+import com.mrkevin574.starwars.presentation.ui.theme.starWarsFont
+import kotlinx.coroutines.launch
 
 @Composable
-fun MainScreen(
-    viewModel: StarWarsViewModel = hiltViewModel()
-) {
+fun MainScreen() {
     StarWarsTheme {
         // A surface container using the 'background' color from the theme
         Surface(
@@ -42,6 +41,8 @@ fun MainScreen(
 @Composable
 fun HorizontalPager() {
     val pagerState = rememberPagerState()
+    val scope = rememberCoroutineScope()
+
     val pages = listOf(
         stringResource(R.string.films),
         stringResource(R.string.peoples),
@@ -58,14 +59,20 @@ fun HorizontalPager() {
                 TabRowDefaults.Indicator(
                     Modifier.pagerTabIndicatorOffset(pagerState, tabPositions)
                 )
-            }
+            },
+            modifier = Modifier.height(80.dp)
         ) {
             pages.forEachIndexed { index, title ->
                 Tab(
-                    text = { Text(text = title, color = Color.White) },
+                    text = {
+                        Text(text = title,
+                            color = YellowStarWars,
+                            fontFamily = starWarsFont
+                        )
+                           },
                     selected = pagerState.currentPage == index,
                     onClick = {
-
+                        scope.launch { pagerState.animateScrollToPage(index) }
                     }
                 )
             }
