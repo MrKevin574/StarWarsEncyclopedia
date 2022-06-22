@@ -16,7 +16,7 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun provideRetrofit() : Retrofit = Retrofit
+    fun provideRetrofit(): Retrofit = Retrofit
         .Builder()
         .baseUrl(BASE_URL_STAR_WARS_API)
         .addConverterFactory(GsonConverterFactory.create())
@@ -25,8 +25,7 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun provideStarWarsProvider(retrofit: Retrofit) : StarWarsProvider
-    {
+    fun provideStarWarsProvider(retrofit: Retrofit): StarWarsProvider {
         return retrofit.create(StarWarsProvider::class.java)
     }
 
