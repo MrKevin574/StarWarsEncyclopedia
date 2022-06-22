@@ -40,27 +40,21 @@ class StarWarsViewModel @Inject constructor(
         viewModelScope.launch {
             _peoples.value = peoples.value.apply {
                 peoples = repository.getAllPeoples()
-                Log.v(TAG, "PEOPLES SIZE: ${peoples.size}")
             }
             _films.value = films.value.apply {
                 films = repository.getAllFilms()
-                Log.v(TAG, "FILMS SIZE: ${films.size}")
             }
             _planets.value = planets.value.apply {
                 planets = repository.getAllPlanets()
-                Log.v(TAG, "PLANETS SIZE ${planets}")
             }
             _species.value = species.value.apply {
                 species = repository.getAllSpecies()
-                Log.v(TAG, "SPECIES SIZE ${species.toString()}")
             }
             _starships.value = starships.value.apply {
                 starships = repository.getAllStarships()
-                Log.v(TAG, "STARSHIPS SIZE ${starships.size}")
             }
             _vehicles.value = vehicles.value.apply {
                 vehicles = repository.getAllVehicles()
-                Log.v(TAG, "VEHICLES SIZE ${vehicles.size}")
             }
         }
     }

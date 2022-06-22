@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">StarWars</string>
+    <string name="films">Films</string>
+    <string name="peoples">Peoples</string>
+    <string name="planets">Planets</string>
+    <string name="species">Species</string>
+    <string name="starships">Starships</string>
 </resources>

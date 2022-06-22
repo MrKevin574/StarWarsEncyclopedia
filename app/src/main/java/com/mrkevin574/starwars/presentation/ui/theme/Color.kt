@@ -1,4 +1,4 @@
-package com.mrkevin574.starwars.ui.theme
+package com.mrkevin574.starwars.presentation.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
