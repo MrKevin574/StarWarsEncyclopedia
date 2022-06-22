@@ -51,7 +51,6 @@ fun ContentFilm(paddingValues: PaddingValues, films: List<Film>) {
             {
                 FilmCard(film = it)
             }
-
         }
     }
 
