@@ -6,41 +6,42 @@ import com.mrkevin574.starwars.domain.model.Planet
 import com.mrkevin574.starwars.util.StarWarsAPI
 import retrofit2.http.GET
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface StarWarsProvider {
 
-    @GET("${StarWarsAPI.SEARCH_PEOPLE}{people}")
-    suspend fun searchPeople(@Path("people") people : String) : PeopleResponseAPI
-
-    @GET("${StarWarsAPI.SEARCH_FILM}{film}")
-    suspend fun searchFilm(@Path("film") film : String) : FilmResponseAPI
-
-    @GET("${StarWarsAPI.SEARCH_PLANET}{planet}")
-    suspend fun searchPlanet(@Path("planet") planet : String) : PlanetResponseAPI
-
-    @GET("${StarWarsAPI.SEARCH_SPECIE}{specie}")
-    suspend fun searchSpecie(@Path("specie") specie : String) :SpeciesResponseAPI
-
-    @GET("${StarWarsAPI.SEARCH_STARSHIP}{starship}")
-    suspend fun searchStarship(@Path("starship") starship : String) : StarshipResponseAPI
-
-    @GET("${StarWarsAPI.SEARCH_VEHICLE}{vehicle}")
-    suspend fun searchVehicle(@Path("vehicle") vehicle : String) : VehicleResponseAPI
+    @GET(StarWarsAPI.PEOPLE)
+    suspend fun searchPeople(@Query(StarWarsAPI.QUERY) people : String) : PeopleResponseAPI?
 
     @GET(StarWarsAPI.PEOPLE)
     suspend fun getAllPeoples() :PeopleResponseAPI
 
     @GET(StarWarsAPI.FILMS)
+    suspend fun searchFilm(@Query(StarWarsAPI.QUERY) film : String) : FilmResponseAPI?
+
+    @GET(StarWarsAPI.FILMS)
     suspend fun getAllFilms() : FilmResponseAPI
+
+    @GET(StarWarsAPI.PLANETS)
+    suspend fun searchPlanet(@Query(StarWarsAPI.QUERY) planet : String) : PlanetResponseAPI?
 
     @GET(StarWarsAPI.PLANETS)
     suspend fun getAllPlanets() : PlanetResponseAPI
 
     @GET(StarWarsAPI.SPECIES)
+    suspend fun searchSpecie(@Query(StarWarsAPI.QUERY) specie : String) :SpeciesResponseAPI?
+
+    @GET(StarWarsAPI.SPECIES)
     suspend fun getAllSpecies() : SpeciesResponseAPI
 
     @GET(StarWarsAPI.STARSHIPS)
+    suspend fun searchStarship(@Query(StarWarsAPI.QUERY) starship : String) : StarshipResponseAPI?
+
+    @GET(StarWarsAPI.STARSHIPS)
     suspend fun getAllStarships() : StarshipResponseAPI
+
+    @GET(StarWarsAPI.VEHICLES)
+    suspend fun searchVehicle(@Query(StarWarsAPI.QUERY) vehicle : String) : VehicleResponseAPI?
 
     @GET(StarWarsAPI.VEHICLES)
     suspend fun getAllVehicles() : VehicleResponseAPI

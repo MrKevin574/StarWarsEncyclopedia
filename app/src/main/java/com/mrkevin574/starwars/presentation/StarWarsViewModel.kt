@@ -38,24 +38,24 @@ class StarWarsViewModel @Inject constructor(
 
     init {
         viewModelScope.launch {
-            _peoples.value = peoples.value.apply {
+            _peoples.value = peoples.value.copy(
                 peoples = repository.getAllPeoples()
-            }
-            _films.value = films.value.apply {
+            )
+            _films.value = films.value.copy(
                 films = repository.getAllFilms()
-            }
-            _planets.value = planets.value.apply {
+            )
+            _planets.value = planets.value.copy(
                 planets = repository.getAllPlanets()
-            }
-            _species.value = species.value.apply {
+            )
+            _species.value = species.value.copy(
                 species = repository.getAllSpecies()
-            }
-            _starships.value = starships.value.apply {
+            )
+            _starships.value = starships.value.copy(
                 starships = repository.getAllStarships()
-            }
-            _vehicles.value = vehicles.value.apply {
+            )
+            _vehicles.value = vehicles.value.copy(
                 vehicles = repository.getAllVehicles()
-            }
+            )
         }
     }
 
@@ -65,22 +65,36 @@ class StarWarsViewModel @Inject constructor(
             when(event)
             {
                 is Event.SearchFilm -> {
-                    repository.searchFilm(event.film)
+                    _films.value = films.value.copy(
+                        films = repository.searchFilm(event.film)
+                    )
+
+                    Log.w(TAG, "${films.value.films.size}")
                 }
                 is Event.SearchPeople -> {
-                    repository.searchPeople(event.people)
+                    _peoples.value = peoples.value.copy(
+                        peoples = repository.searchPeople(event.people)
+                    )
                 }
                 is Event.SearchPlanet -> {
-                    repository.searchPlanet(event.planet)
+                    _planets.value = planets.value.copy(
+                        planets = repository.searchPlanet(event.planet)
+                    )
                 }
                 is Event.SearchSpecie -> {
-                    repository.searchSpecie(event.specie)
+                    _species.value = species.value.copy(
+                        species = repository.searchSpecie(event.specie)
+                    )
                 }
                 is Event.SearchStarship -> {
-                    repository.searchStarship(event.starship)
+                    _starships.value = starships.value.copy(
+                        starships = repository.searchStarship(event.starship)
+                    )
                 }
                 is Event.SearchVehicle -> {
-                    repository.searchVehicle(event.vehicle)
+                    _vehicles.value = vehicles.value.copy(
+                        vehicles = repository.searchVehicle(event.vehicle)
+                    )
                 }
             }
         }

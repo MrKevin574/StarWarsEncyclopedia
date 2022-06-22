@@ -14,10 +14,10 @@ class StarWarsRepository @Inject constructor(
     suspend fun getAllStarships() = provider.getAllStarships().starships.map { it.toDomain() }
     suspend fun getAllVehicles() = provider.getAllVehicles().vehicles.map { it.toDomain() }
 
-    suspend fun searchPeople(people : String) = provider.searchPeople(people).peoples.map { it.toDomain() }
-    suspend fun searchFilm(film : String) = provider.searchFilm(film).films.map { it.toDomain() }
-    suspend fun searchPlanet(planet : String) = provider.searchPlanet(planet).planets.map { it.toDomain() }
-    suspend fun searchSpecie(specie : String) = provider.searchSpecie(specie).species.map { it.toDomain() }
-    suspend fun searchStarship(starship : String) = provider.searchStarship(starship).starships.map { it.toDomain() }
-    suspend fun searchVehicle(vehicle : String) = provider.searchVehicle(vehicle).vehicles.map { it.toDomain() }
+    suspend fun searchPeople(people : String) = provider.searchPeople(people)?.peoples?.map { it.toDomain() } ?: emptyList()
+    suspend fun searchFilm(film : String) = provider.searchFilm(film)?.films?.map { it.toDomain() } ?: emptyList()
+    suspend fun searchPlanet(planet : String) = provider.searchPlanet(planet)?.planets?.map { it.toDomain() } ?: emptyList()
+    suspend fun searchSpecie(specie : String) = provider.searchSpecie(specie)?.species?.map { it.toDomain() } ?: emptyList()
+    suspend fun searchStarship(starship : String) = provider.searchStarship(starship)?.starships?.map { it.toDomain() } ?: emptyList()
+    suspend fun searchVehicle(vehicle : String) = provider.searchVehicle(vehicle)?.vehicles?.map { it.toDomain() } ?: emptyList()
 }
