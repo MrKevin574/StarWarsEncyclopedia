@@ -3,6 +3,13 @@ package com.mrkevin574.starwars.data.repository.model
 import com.google.gson.annotations.SerializedName
 import com.mrkevin574.starwars.domain.model.People
 
+data class PeopleResponseAPI(
+    @SerializedName("count") val count : Int,
+    @SerializedName("next") val next : String,
+    @SerializedName("previous") val previous : String,
+    @SerializedName("results") val peoples : List<PeopleResponse>,
+)
+
 data class PeopleResponse(
     @SerializedName("name")  val name : String,
     @SerializedName("height")  val height : String,

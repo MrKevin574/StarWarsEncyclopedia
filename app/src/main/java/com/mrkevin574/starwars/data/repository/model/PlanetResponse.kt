@@ -3,6 +3,13 @@ package com.mrkevin574.starwars.data.repository.model
 import com.google.gson.annotations.SerializedName
 import com.mrkevin574.starwars.domain.model.Planet
 
+data class PlanetResponseAPI(
+    @SerializedName("count") val count : Int,
+    @SerializedName("next") val next : String,
+    @SerializedName("previous") val previous : String,
+    @SerializedName("results") val planets : List<PlanetResponse>,
+)
+
 data class PlanetResponse(
     @SerializedName("name") val name : String,
     @SerializedName("rotation_period") val rotation_period : String,

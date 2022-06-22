@@ -3,6 +3,13 @@ package com.mrkevin574.starwars.data.repository.model
 import com.google.gson.annotations.SerializedName
 import com.mrkevin574.starwars.domain.model.Film
 
+data class FilmResponseAPI(
+    @SerializedName("count") val count : Int,
+    @SerializedName("next") val next : String,
+    @SerializedName("previous") val previous : String,
+    @SerializedName("results") val films : List<FilmResponse>,
+)
+
 data class FilmResponse(
     @SerializedName("title") val title : String,
     @SerializedName("episode_id") val episode_id : Int,
