@@ -16,11 +16,11 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun provideRetrofit() = Retrofit
-            .Builder()
-            .baseUrl(BASE_URL_STAR_WARS_API)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
+    fun provideRetrofit() : Retrofit = Retrofit
+        .Builder()
+        .baseUrl(BASE_URL_STAR_WARS_API)
+        .addConverterFactory(GsonConverterFactory.create())
+        .build()
 
 
     @Singleton

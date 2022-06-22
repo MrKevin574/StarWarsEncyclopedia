@@ -2,30 +2,31 @@ package com.mrkevin574.starwars.data.repository
 
 import com.mrkevin574.starwars.data.repository.model.*
 import com.mrkevin574.starwars.domain.model.People
+import com.mrkevin574.starwars.util.StarWarsAPI
 import retrofit2.http.GET
 import retrofit2.http.Path
 
 interface StarWarsProvider {
 
-    @GET("people/?search={people}")
+    @GET("${StarWarsAPI.SEARCH_PEOPLE}{people}")
     suspend fun searchPeople(@Path("people") people : String) : List<PeopleResponse>
 
-    @GET("people/")
+    @GET(StarWarsAPI.PEOPLE)
     suspend fun getAllPeoples() : List<PeopleResponse>
 
-    @GET("films/")
+    @GET(StarWarsAPI.FILMS)
     suspend fun getAllFilms() : List<FilmResponse>
 
-    @GET("planets/")
+    @GET(StarWarsAPI.PLANETS)
     suspend fun getAllPlanets() : List<PlanetResponse>
 
-    @GET("species/")
+    @GET(StarWarsAPI.SPECIES)
     suspend fun getAllSpecies() : List<SpeciesResponse>
 
-    @GET("starships/")
+    @GET(StarWarsAPI.STARSHIPS)
     suspend fun getAllStarships() : List<StarshipResponse>
 
-    @GET("vehicles/")
+    @GET(StarWarsAPI.VEHICLES)
     suspend fun getAllVehicles() : List<VehicleResponse>
 
 }
