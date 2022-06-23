@@ -5,6 +5,7 @@
     <string name="planets">Planets</string>
     <string name="species">Species</string>
     <string name="starships">Starships</string>
+    <string name="vehicles">Vehicles</string>
     <string name="search_film">Search Film</string>
     <string name="error_01">Error getting all people</string>
 </resources>

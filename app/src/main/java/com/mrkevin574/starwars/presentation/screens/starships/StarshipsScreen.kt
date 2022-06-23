@@ -1,4 +1,4 @@
-package com.mrkevin574.starwars.presentation.planet
+package com.mrkevin574.starwars.presentation.screens.starships
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
@@ -13,12 +13,12 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.mrkevin574.starwars.presentation.StarWarsViewModel
 
 @Composable
-fun PlanetScreen(
+fun StarshipsScreen(
     viewModel: StarWarsViewModel = hiltViewModel()
 )
 {
     Text(
-        text = "Planets",
+        text = "Starships Fragment",
         modifier = Modifier.fillMaxSize().background(Color.Black),
         textAlign = TextAlign.Center,
         fontSize = 28.sp,

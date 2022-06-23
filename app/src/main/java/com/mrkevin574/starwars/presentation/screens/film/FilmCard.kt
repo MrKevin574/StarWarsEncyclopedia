@@ -1,4 +1,4 @@
-package com.mrkevin574.starwars.presentation.film
+package com.mrkevin574.starwars.presentation.screens.film
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -8,7 +8,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.mrkevin574.starwars.data.repository.model.toDomain
 import com.mrkevin574.starwars.domain.model.Film
 
 val testFilm = Film(

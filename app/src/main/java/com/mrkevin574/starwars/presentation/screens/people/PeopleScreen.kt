@@ -1,4 +1,4 @@
-package com.mrkevin574.starwars.presentation.species
+package com.mrkevin574.starwars.presentation.screens.people
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
@@ -13,12 +13,12 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.mrkevin574.starwars.presentation.StarWarsViewModel
 
 @Composable
-fun SpeciesScreen(
+fun PeopleScreen(
     viewModel: StarWarsViewModel = hiltViewModel()
 )
 {
     Text(
-        text = "Species",
+        text = "Peoples",
         modifier = Modifier.fillMaxSize().background(Color.Black),
         textAlign = TextAlign.Center,
         fontSize = 28.sp,

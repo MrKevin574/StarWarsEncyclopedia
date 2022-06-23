@@ -1,4 +1,4 @@
-package com.mrkevin574.starwars.presentation.vehicles
+package com.mrkevin574.starwars.presentation.screens.species
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
@@ -13,12 +13,12 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.mrkevin574.starwars.presentation.StarWarsViewModel
 
 @Composable
-fun VehicleScreen(
+fun SpeciesScreen(
     viewModel: StarWarsViewModel = hiltViewModel()
 )
 {
     Text(
-        text = "Vehicles",
+        text = "Species",
         modifier = Modifier.fillMaxSize().background(Color.Black),
         textAlign = TextAlign.Center,
         fontSize = 28.sp,

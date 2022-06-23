@@ -1,4 +1,4 @@
-package com.mrkevin574.starwars.presentation.film
+package com.mrkevin574.starwars.presentation.screens.film
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -10,7 +10,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.mrkevin574.starwars.domain.model.Film
 import com.mrkevin574.starwars.presentation.Event
 import com.mrkevin574.starwars.presentation.StarWarsViewModel
 import com.mrkevin574.starwars.presentation.components.Loading

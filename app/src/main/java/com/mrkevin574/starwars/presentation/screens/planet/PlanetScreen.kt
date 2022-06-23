@@ -1,4 +1,4 @@
-package com.mrkevin574.starwars.presentation.people
+package com.mrkevin574.starwars.presentation.screens.planet
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
@@ -13,12 +13,12 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.mrkevin574.starwars.presentation.StarWarsViewModel
 
 @Composable
-fun PeopleScreen(
+fun PlanetScreen(
     viewModel: StarWarsViewModel = hiltViewModel()
 )
 {
     Text(
-        text = "Peoples",
+        text = "Planets",
         modifier = Modifier.fillMaxSize().background(Color.Black),
         textAlign = TextAlign.Center,
         fontSize = 28.sp,

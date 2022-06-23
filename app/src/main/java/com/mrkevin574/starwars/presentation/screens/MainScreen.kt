@@ -12,12 +12,12 @@ import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.pagerTabIndicatorOffset
 import com.google.accompanist.pager.rememberPagerState
 import com.mrkevin574.starwars.R
-import com.mrkevin574.starwars.presentation.StarWarsViewModel
-import com.mrkevin574.starwars.presentation.film.FilmScreen
-import com.mrkevin574.starwars.presentation.people.PeopleScreen
-import com.mrkevin574.starwars.presentation.planet.PlanetScreen
-import com.mrkevin574.starwars.presentation.species.SpeciesScreen
-import com.mrkevin574.starwars.presentation.starships.StarshipsScreen
+import com.mrkevin574.starwars.presentation.screens.film.FilmScreen
+import com.mrkevin574.starwars.presentation.screens.people.PeopleScreen
+import com.mrkevin574.starwars.presentation.screens.planet.PlanetScreen
+import com.mrkevin574.starwars.presentation.screens.species.SpeciesScreen
+import com.mrkevin574.starwars.presentation.screens.starships.StarshipsScreen
+import com.mrkevin574.starwars.presentation.screens.vehicles.VehicleScreen
 import com.mrkevin574.starwars.presentation.ui.theme.StarWarsTheme
 import com.mrkevin574.starwars.presentation.ui.theme.YellowStarWars
 import com.mrkevin574.starwars.presentation.ui.theme.starWarsFont
@@ -48,7 +48,8 @@ fun HorizontalPager() {
         stringResource(R.string.peoples),
         stringResource(R.string.planets),
         stringResource(R.string.species),
-        stringResource(R.string.starships)
+        stringResource(R.string.starships),
+        stringResource(R.string.vehicles)
     )
 
     Column {
@@ -91,6 +92,7 @@ fun HorizontalPager() {
                 2 -> PlanetScreen()
                 3 -> SpeciesScreen()
                 4 -> StarshipsScreen()
+                5 -> VehicleScreen()
             }
         }
     }
