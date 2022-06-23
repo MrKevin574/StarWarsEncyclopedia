@@ -6,4 +6,5 @@
     <string name="species">Species</string>
     <string name="starships">Starships</string>
     <string name="search_film">Search Film</string>
+    <string name="error_01">Error getting all people</string>
 </resources>

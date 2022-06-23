@@ -17,12 +17,14 @@ import com.mrkevin574.starwars.presentation.components.Loading
 import com.mrkevin574.starwars.presentation.components.OptionSearch
 import com.mrkevin574.starwars.presentation.ui.theme.Black700
 import com.mrkevin574.starwars.R
+import com.mrkevin574.starwars.presentation.components.ErrorMessageScreen
+import com.mrkevin574.starwars.presentation.states.FilmsState
 
 @Composable
 fun FilmScreen(
     viewModel: StarWarsViewModel = hiltViewModel()
 ) {
-    val films = viewModel.films.value
+    val filmsState = viewModel.films.value
 
     Scaffold(
         modifier = Modifier.fillMaxSize(),
@@ -33,7 +35,7 @@ fun FilmScreen(
         content = { paddingValues ->
             ContentFilm(
                 paddingValues = paddingValues,
-                films = films.films
+                filmsState = filmsState
             )
         },
         backgroundColor = Color.Black
@@ -41,13 +43,18 @@ fun FilmScreen(
 }
 
 @Composable
-fun ContentFilm(paddingValues: PaddingValues, films: List<Film>) {
-    if (films.isEmpty()) {
+fun ContentFilm(paddingValues: PaddingValues, filmsState: FilmsState) {
+
+    if(!filmsState.error.isError && filmsState.films.isEmpty())
+    {
         Loading(paddingValues)
+    }else if(filmsState.error.isError)
+    {
+        ErrorMessageScreen(message = filmsState.error.errorMessage)
     } else {
         LazyColumn(contentPadding = paddingValues, modifier = Modifier.background(Black700))
         {
-            items(films)
+            items(filmsState.films)
             {
                 FilmCard(film = it)
             }
@@ -55,4 +62,5 @@ fun ContentFilm(paddingValues: PaddingValues, films: List<Film>) {
     }
 
 }
+
 
