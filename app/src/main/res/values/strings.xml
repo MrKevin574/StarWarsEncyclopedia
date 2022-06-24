@@ -30,4 +30,14 @@
     <string name="surface_water">Surface Water</string>
     <string name="population">Population</string>
     <string name="residents">Residents</string>
+    <string name="classification">Classification</string>
+    <string name="designation">Designation</string>
+    <string name="average_height">Average Height</string>
+    <string name="skin_colors">Skin colors</string>
+    <string name="hair_colors">Hair colors</string>
+    <string name="eye_colors">Eye colors</string>
+    <string name="average_lifespan">Average lifespan</string>
+    <string name="language">Language</string>
+    <string name="people">people</string>
+    <string name="not_available">Not available</string>
 </resources>

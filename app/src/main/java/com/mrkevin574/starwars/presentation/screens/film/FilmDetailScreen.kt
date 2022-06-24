@@ -80,7 +80,7 @@ fun FilmDetailScreen(film : Film)
 }
 
 @Composable
-fun ComponentDetail(type : String, value : String)
+fun ComponentDetail(type : String, value : String?)
 {
     Row(
         modifier = Modifier.fillMaxWidth().padding(top = 10.dp),
@@ -93,7 +93,7 @@ fun ComponentDetail(type : String, value : String)
             fontSize = 10.sp
         )
         Text(
-            text = value,
+            text = value ?: stringResource(R.string.not_available),
             color = Color.Red,
             fontFamily = starWarsFont,
             fontSize = 10.sp
