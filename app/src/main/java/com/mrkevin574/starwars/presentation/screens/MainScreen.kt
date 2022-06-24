@@ -8,6 +8,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import androidx.navigation.NavHostController
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.pagerTabIndicatorOffset
@@ -25,7 +26,7 @@ import com.mrkevin574.starwars.presentation.ui.theme.starWarsFont
 import kotlinx.coroutines.launch
 
 @Composable
-fun MainScreen(navController: NavController) {
+fun MainScreen(navController: NavHostController) {
     StarWarsTheme {
         // A surface container using the 'background' color from the theme
         Surface(
@@ -40,7 +41,7 @@ fun MainScreen(navController: NavController) {
 
 @OptIn(ExperimentalPagerApi::class)
 @Composable
-fun HorizontalPager(navController: NavController) {
+fun HorizontalPager(navController: NavHostController) {
     val pagerState = rememberPagerState()
     val scope = rememberCoroutineScope()
 

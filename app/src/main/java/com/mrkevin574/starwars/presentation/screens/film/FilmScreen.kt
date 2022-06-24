@@ -1,5 +1,6 @@
 package com.mrkevin574.starwars.presentation.screens.film
 
+import android.net.Uri
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -11,22 +12,22 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import androidx.navigation.NavHostController
+import com.google.gson.Gson
 import com.mrkevin574.starwars.presentation.Event
 import com.mrkevin574.starwars.presentation.StarWarsViewModel
 import com.mrkevin574.starwars.presentation.components.Loading
 import com.mrkevin574.starwars.presentation.components.OptionSearch
 import com.mrkevin574.starwars.presentation.ui.theme.Black700
 import com.mrkevin574.starwars.R
-import com.mrkevin574.starwars.domain.model.Film
 import com.mrkevin574.starwars.presentation.components.ErrorMessageScreen
 import com.mrkevin574.starwars.presentation.states.FilmsState
-import com.mrkevin574.starwars.util.Routes
-import com.mrkevin574.starwars.util.StarWarsAPI
+import com.mrkevin574.starwars.util.Screens
 
 @Composable
 fun FilmScreen(
     viewModel: StarWarsViewModel = hiltViewModel(),
-    navController: NavController
+    navController: NavHostController
 ) {
     val filmsState = viewModel.films.value
 
@@ -48,7 +49,7 @@ fun FilmScreen(
 }
 
 @Composable
-fun ContentFilm(paddingValues: PaddingValues, filmsState: FilmsState, navController: NavController) {
+fun ContentFilm(paddingValues: PaddingValues, filmsState: FilmsState, navController: NavHostController) {
 
     if(!filmsState.error.isError && filmsState.films.isEmpty())
     {
@@ -61,12 +62,16 @@ fun ContentFilm(paddingValues: PaddingValues, filmsState: FilmsState, navControl
         {
             items(filmsState.films)
             {
-                FilmCard(film = it)
+                FilmCard(film = it){
+                    val route = Screens.FilmsDetailScreen.passFilm(Uri.encode(Gson().toJson(it)))
+                    navController.navigate(route)
+                }
             }
         }
     }
 
 }
+
 
 
 

@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Card
+import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -37,12 +38,15 @@ val testFilm = Film(
     url = "https://swapi.dev/api/films/1/"
 )
 
+@OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun FilmCard(
-    film: Film
+    film: Film,
+    onClick : () -> Unit
 )
 {
     Card(
+        onClick = onClick,
         modifier = Modifier
             .fillMaxWidth()
             .padding(
@@ -93,11 +97,4 @@ fun ContentCard(film : Film)
             fontFamily = starWarsFont
         )
     }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun PreviewFilmCard()
-{
-    FilmCard(film = testFilm)
 }
