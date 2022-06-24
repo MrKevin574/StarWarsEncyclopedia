@@ -40,4 +40,18 @@
     <string name="language">Language</string>
     <string name="people">people</string>
     <string name="not_available">Not available</string>
+    <string name="search_species">Search species</string>
+    <string name="model">Model</string>
+    <string name="manufacturer">Manufacturer</string>
+    <string name="cost_in_credits">Cost in credits</string>
+    <string name="length">Lenght</string>
+    <string name="max_atmosphering_speed">Max atmosphering speed</string>
+    <string name="crew">Crew</string>
+    <string name="passengers">Passengers</string>
+    <string name="cargo_capacity">Cargo capacity</string>
+    <string name="consumables">Consumables</string>
+    <string name="hyperdrive_rating">Hyperdrive rating</string>
+    <string name="MGLT">MGLT</string>
+    <string name="starship_class">Starship class</string>
+    <string name="pilots">Pilots</string>
 </resources>

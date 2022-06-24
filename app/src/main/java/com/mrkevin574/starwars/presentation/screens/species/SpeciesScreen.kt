@@ -37,7 +37,7 @@ fun SpeciesScreen(
         modifier = Modifier.fillMaxSize(),
         bottomBar = {
             OptionSearch(
-                label = stringResource(id = R.string.search_planet),
+                label = stringResource(id = R.string.search_species),
                 onSearch = { viewModel.onEvent(Event.SearchPeople(it)) }
             )
         },
@@ -68,7 +68,7 @@ fun ContentSpecie(
             items(specieState.species)
             {
                 GeneralCard(title = it.name) {
-                    val route = Screens.PlanetDetailScreen.passFilm(Uri.encode(Gson().toJson(it)))
+                    val route = Screens.SpeciesDetailScreen.passFilm(Uri.encode(Gson().toJson(it)))
                     navController.navigate(route)
                 }
             }
