@@ -12,4 +12,9 @@
     <string name="producer">Producer</string>
     <string name="release">Release</string>
     <string name="characters">Characters</string>
+    <string name="search_people">Search People</string>
+    <string name="height">Height</string>
+    <string name="hair_color">Hair color</string>
+    <string name="skin_color">Skin color</string>
+    <string name="eye_color">Eye color</string>
 </resources>

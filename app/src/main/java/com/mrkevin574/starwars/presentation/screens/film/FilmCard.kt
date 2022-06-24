@@ -12,7 +12,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.mrkevin574.starwars.domain.model.Film
@@ -40,12 +39,12 @@ fun FilmCard(
             ),
         border = BorderStroke(3.dp, YellowStarWars),
         elevation = 8.dp,
-        content = { ContentCard(film)}
+        content = { ContentFilmCard(film)}
     )
 }
 
 @Composable
-fun ContentCard(film : Film)
+fun ContentFilmCard(film : Film)
 {
     Column(
         modifier = Modifier.background(Black400)
