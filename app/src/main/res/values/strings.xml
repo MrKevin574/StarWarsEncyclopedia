@@ -8,4 +8,8 @@
     <string name="vehicles">Vehicles</string>
     <string name="search_film">Search Film</string>
     <string name="error_01">Error getting all people</string>
+    <string name="director">Director</string>
+    <string name="producer">Producer</string>
+    <string name="release">Release</string>
+    <string name="characters">Characters</string>
 </resources>
