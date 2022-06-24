@@ -77,7 +77,7 @@ fun ContentCard(film : Film)
         Text(
             text = film.opening_crawl,
             color = Color.Gray,
-            fontSize = 10.sp,
+            fontSize = 8.sp,
             modifier = Modifier.fillMaxWidth()
                 .padding(18.dp),
             textAlign = TextAlign.Center,
