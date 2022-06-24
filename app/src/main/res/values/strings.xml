@@ -20,4 +20,14 @@
     <string name="birth_year">Birth year</string>
     <string name="gender">Gender</string>
     <string name="homeworld">Home World</string>
+    <string name="search_planet">Search planet</string>
+    <string name="rotation_period">Rotation period</string>
+    <string name="orbital_period">Orbital Period</string>
+    <string name="diameter">Diameter</string>
+    <string name="climate">Climate</string>
+    <string name="gravity">Gravity</string>
+    <string name="terrain">Terrain</string>
+    <string name="surface_water">Surface Water</string>
+    <string name="population">Population</string>
+    <string name="residents">Residents</string>
 </resources>
