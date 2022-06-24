@@ -17,4 +17,7 @@
     <string name="hair_color">Hair color</string>
     <string name="skin_color">Skin color</string>
     <string name="eye_color">Eye color</string>
+    <string name="birth_year">Birth year</string>
+    <string name="gender">Gender</string>
+    <string name="homeworld">Home World</string>
 </resources>
