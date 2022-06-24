@@ -1,6 +1,6 @@
 package com.mrkevin574.starwars.domain.model
 
-import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class Film(
     val title : String,
@@ -18,3 +18,4 @@ data class Film(
     val edited : String,
     val url : String
 )
+

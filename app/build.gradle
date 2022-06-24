@@ -77,4 +77,7 @@ dependencies {
     implementation "com.google.accompanist:accompanist-pager-indicators:$accompanist_version"
     //SystemUI Color
     implementation "com.google.accompanist:accompanist-systemuicontroller:$accompanist_version"
+
+    //Navigation
+    implementation "androidx.navigation:navigation-compose:$nav_version"
 }

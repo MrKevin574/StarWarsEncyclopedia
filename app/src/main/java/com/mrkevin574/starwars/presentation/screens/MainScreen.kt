@@ -1,4 +1,4 @@
-package com.mrkevin574.starwars.presentation.components
+package com.mrkevin574.starwars.presentation.screens
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
@@ -7,6 +7,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.pagerTabIndicatorOffset
@@ -24,14 +25,14 @@ import com.mrkevin574.starwars.presentation.ui.theme.starWarsFont
 import kotlinx.coroutines.launch
 
 @Composable
-fun MainScreen() {
+fun MainScreen(navController: NavController) {
     StarWarsTheme {
         // A surface container using the 'background' color from the theme
         Surface(
             modifier = Modifier.fillMaxSize(),
             color = MaterialTheme.colors.background
         ) {
-            HorizontalPager()
+            HorizontalPager(navController)
         }
     }
 }
@@ -39,7 +40,7 @@ fun MainScreen() {
 
 @OptIn(ExperimentalPagerApi::class)
 @Composable
-fun HorizontalPager() {
+fun HorizontalPager(navController: NavController) {
     val pagerState = rememberPagerState()
     val scope = rememberCoroutineScope()
 
@@ -87,12 +88,12 @@ fun HorizontalPager() {
             modifier = Modifier.fillMaxSize()
         ) { page ->
             when (page) {
-                0 -> FilmScreen()
-                1 -> PeopleScreen()
-                2 -> PlanetScreen()
-                3 -> SpeciesScreen()
-                4 -> StarshipsScreen()
-                5 -> VehicleScreen()
+                0 -> FilmScreen(navController = navController)
+                1 -> PeopleScreen(navController = navController)
+                2 -> PlanetScreen(navController = navController)
+                3 -> SpeciesScreen(navController = navController)
+                4 -> StarshipsScreen(navController = navController)
+                5 -> VehicleScreen(navController = navController)
             }
         }
     }

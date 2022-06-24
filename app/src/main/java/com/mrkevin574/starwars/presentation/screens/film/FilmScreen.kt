@@ -10,18 +10,23 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavController
 import com.mrkevin574.starwars.presentation.Event
 import com.mrkevin574.starwars.presentation.StarWarsViewModel
 import com.mrkevin574.starwars.presentation.components.Loading
 import com.mrkevin574.starwars.presentation.components.OptionSearch
 import com.mrkevin574.starwars.presentation.ui.theme.Black700
 import com.mrkevin574.starwars.R
+import com.mrkevin574.starwars.domain.model.Film
 import com.mrkevin574.starwars.presentation.components.ErrorMessageScreen
 import com.mrkevin574.starwars.presentation.states.FilmsState
+import com.mrkevin574.starwars.util.Routes
+import com.mrkevin574.starwars.util.StarWarsAPI
 
 @Composable
 fun FilmScreen(
-    viewModel: StarWarsViewModel = hiltViewModel()
+    viewModel: StarWarsViewModel = hiltViewModel(),
+    navController: NavController
 ) {
     val filmsState = viewModel.films.value
 
@@ -34,7 +39,8 @@ fun FilmScreen(
         content = { paddingValues ->
             ContentFilm(
                 paddingValues = paddingValues,
-                filmsState = filmsState
+                filmsState = filmsState,
+                navController = navController
             )
         },
         backgroundColor = Color.Black
@@ -42,7 +48,7 @@ fun FilmScreen(
 }
 
 @Composable
-fun ContentFilm(paddingValues: PaddingValues, filmsState: FilmsState) {
+fun ContentFilm(paddingValues: PaddingValues, filmsState: FilmsState, navController: NavController) {
 
     if(!filmsState.error.isError && filmsState.films.isEmpty())
     {
@@ -61,5 +67,6 @@ fun ContentFilm(paddingValues: PaddingValues, filmsState: FilmsState) {
     }
 
 }
+
 
 
