@@ -1,7 +1,5 @@
 package com.mrkevin574.starwars.domain.model
 
-import com.google.gson.annotations.SerializedName
-
 data class Specie(
     val name : String,
     val classification : String,

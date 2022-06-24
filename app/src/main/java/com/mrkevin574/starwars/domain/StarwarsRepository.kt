@@ -1,10 +1,8 @@
 package com.mrkevin574.starwars.domain
 
-import com.mrkevin574.starwars.R
 import com.mrkevin574.starwars.data.repository.StarWarsProvider
 import com.mrkevin574.starwars.data.repository.model.toDomain
 import com.mrkevin574.starwars.domain.model.*
-import com.mrkevin574.starwars.util.ErrorStarwarsAPI
 import com.mrkevin574.starwars.util.Resource
 import javax.inject.Inject
 

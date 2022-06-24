@@ -5,9 +5,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.grid.GridCells
-import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
-import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
@@ -24,7 +21,6 @@ import com.mrkevin574.starwars.presentation.components.ErrorMessageScreen
 import com.mrkevin574.starwars.presentation.components.GeneralCard
 import com.mrkevin574.starwars.presentation.components.Loading
 import com.mrkevin574.starwars.presentation.components.OptionSearch
-import com.mrkevin574.starwars.presentation.screens.film.FilmCard
 import com.mrkevin574.starwars.presentation.states.PeoplesState
 import com.mrkevin574.starwars.presentation.ui.theme.Black700
 import com.mrkevin574.starwars.util.Screens

@@ -1,7 +1,5 @@
 package com.mrkevin574.starwars.domain.model
 
-import java.io.Serializable
-
 data class Film(
     val title : String,
     val episode_id : Int,

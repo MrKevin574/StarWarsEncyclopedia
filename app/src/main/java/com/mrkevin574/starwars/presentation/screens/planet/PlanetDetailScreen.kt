@@ -46,8 +46,8 @@ fun PlanetDetailScreen(planet: Planet)
             ComponentDetail(type = stringResource(R.string.terrain), value = planet.terrain)
             ComponentDetail(type = stringResource(R.string.surface_water), value = planet.surface_water)
             ComponentDetail(type = stringResource(R.string.population), value = planet.population)
-            ComponentDetail(type = stringResource(R.string.residents), value = if(planet.residents.isNullOrEmpty()) stringResource(R.string.not_available) else planet.residents.size.toString())
-            ComponentDetail(type = stringResource(R.string.films), value = if(planet.films.isNullOrEmpty()) stringResource(R.string.not_available) else planet.films.size.toString())
+            ComponentDetail(type = stringResource(R.string.residents), value =  planet.residents.size.toString())
+            ComponentDetail(type = stringResource(R.string.films), value =  planet.films.size.toString())
         }
 
     }

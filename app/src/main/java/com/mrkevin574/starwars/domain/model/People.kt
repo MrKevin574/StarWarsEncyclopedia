@@ -1,7 +1,5 @@
 package com.mrkevin574.starwars.domain.model
 
-import com.google.gson.annotations.SerializedName
-
 data class People(
     val name : String,
     val height : String,

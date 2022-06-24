@@ -7,16 +7,11 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Scaffold
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import com.google.gson.Gson
 import com.mrkevin574.starwars.R
@@ -26,8 +21,6 @@ import com.mrkevin574.starwars.presentation.components.ErrorMessageScreen
 import com.mrkevin574.starwars.presentation.components.GeneralCard
 import com.mrkevin574.starwars.presentation.components.Loading
 import com.mrkevin574.starwars.presentation.components.OptionSearch
-import com.mrkevin574.starwars.presentation.screens.starships.ContentStarships
-import com.mrkevin574.starwars.presentation.states.StarshipsState
 import com.mrkevin574.starwars.presentation.states.VehiclesState
 import com.mrkevin574.starwars.presentation.ui.theme.Black700
 import com.mrkevin574.starwars.util.Screens

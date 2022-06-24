@@ -1,12 +1,9 @@
 package com.mrkevin574.starwars.data.repository
 
 import com.mrkevin574.starwars.data.repository.model.*
-import com.mrkevin574.starwars.domain.model.People
-import com.mrkevin574.starwars.domain.model.Planet
 import com.mrkevin574.starwars.util.StarWarsAPI
 import retrofit2.Response
 import retrofit2.http.GET
-import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface StarWarsProvider {

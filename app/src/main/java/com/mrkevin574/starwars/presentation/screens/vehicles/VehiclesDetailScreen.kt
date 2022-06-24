@@ -49,8 +49,8 @@ fun VehiclesDetailScreen(vehicle: Vehicle)
             ComponentDetail(type = stringResource(R.string.consumables), value = vehicle.consumables)
             ComponentDetail(type = stringResource(R.string.vehicle_class), value = vehicle.vehicle_class)
 
-            ComponentDetail(type = stringResource(R.string.pilots), value = if(vehicle.pilots.isNullOrEmpty()) stringResource(R.string.not_available) else vehicle.pilots.size.toString())
-            ComponentDetail(type = stringResource(R.string.films), value = if(vehicle.films.isNullOrEmpty()) stringResource(R.string.not_available) else vehicle.films.size.toString())
+            ComponentDetail(type = stringResource(R.string.pilots), value =  vehicle.pilots.size.toString())
+            ComponentDetail(type = stringResource(R.string.films), value =  vehicle.films.size.toString())
         }
 
     }

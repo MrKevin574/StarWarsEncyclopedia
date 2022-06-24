@@ -1,6 +1,5 @@
 package com.mrkevin574.starwars.presentation
 
-import android.util.Log
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
@@ -17,8 +16,6 @@ import javax.inject.Inject
 class StarWarsViewModel @Inject constructor(
     private val repository: StarWarsRepository
 ) : ViewModel(){
-
-    private val TAG = "viewmodel_call"
 
     private val _peoples = mutableStateOf(PeoplesState())
     val peoples : State<PeoplesState> = _peoples
