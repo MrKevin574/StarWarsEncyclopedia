@@ -9,12 +9,12 @@ import androidx.compose.ui.unit.dp
 import com.mrkevin574.starwars.presentation.ui.theme.YellowStarWars
 
 @Composable
-fun Loading(paddingValues: PaddingValues)
+fun Loading()
 {
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .padding(paddingValues),
+            .padding(),
         contentAlignment = Alignment.Center
     ){
         CircularProgressIndicator(

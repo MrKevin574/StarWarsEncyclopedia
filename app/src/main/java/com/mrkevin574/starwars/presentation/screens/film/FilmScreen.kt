@@ -25,39 +25,26 @@ import com.mrkevin574.starwars.util.Screens
 
 @Composable
 fun FilmScreen(
-    viewModel: StarWarsViewModel = hiltViewModel(),
+    filmsState: FilmsState,
     navController: NavHostController
 ) {
-    val filmsState = viewModel.films.value
-
-    Scaffold(
-        modifier = Modifier.fillMaxSize(),
-        bottomBar = { OptionSearch(
-            label = stringResource(id = R.string.search_film),
-            onSearch = { viewModel.onEvent(Event.SearchFilm(it)) }
-        ) },
-        content = { paddingValues ->
-            ContentFilm(
-                paddingValues = paddingValues,
-                filmsState = filmsState,
-                navController = navController
-            )
-        },
-        backgroundColor = Color.Black
+    ContentFilm(
+        filmsState = filmsState,
+        navController = navController
     )
 }
 
 @Composable
-fun ContentFilm(paddingValues: PaddingValues, filmsState: FilmsState, navController: NavHostController) {
+fun ContentFilm(filmsState: FilmsState, navController: NavHostController) {
 
     if(!filmsState.error.isError && filmsState.films.isEmpty())
     {
-        Loading(paddingValues)
+        Loading()
     }else if(filmsState.error.isError)
     {
         ErrorMessageScreen(message = filmsState.error.errorMessage)
     } else {
-        LazyColumn(contentPadding = paddingValues, modifier = Modifier.background(Black700))
+        LazyColumn(modifier = Modifier.background(Black700))
         {
             items(filmsState.films)
             {

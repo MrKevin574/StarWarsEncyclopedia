@@ -1,5 +1,6 @@
 package com.mrkevin574.starwars.presentation.screens
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
@@ -7,32 +8,67 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
-import com.google.accompanist.pager.ExperimentalPagerApi
+import com.google.accompanist.pager.*
 import com.google.accompanist.pager.HorizontalPager
-import com.google.accompanist.pager.pagerTabIndicatorOffset
-import com.google.accompanist.pager.rememberPagerState
 import com.mrkevin574.starwars.R
+import com.mrkevin574.starwars.presentation.Event
+import com.mrkevin574.starwars.presentation.StarWarsViewModel
+import com.mrkevin574.starwars.presentation.components.OptionSearch
 import com.mrkevin574.starwars.presentation.screens.film.FilmScreen
 import com.mrkevin574.starwars.presentation.screens.people.PeopleScreen
 import com.mrkevin574.starwars.presentation.screens.planet.PlanetScreen
 import com.mrkevin574.starwars.presentation.screens.species.SpeciesScreen
 import com.mrkevin574.starwars.presentation.screens.starships.StarshipsScreen
 import com.mrkevin574.starwars.presentation.screens.vehicles.VehicleScreen
+import com.mrkevin574.starwars.presentation.ui.theme.Black700
 import com.mrkevin574.starwars.presentation.ui.theme.StarWarsTheme
 import com.mrkevin574.starwars.presentation.ui.theme.YellowStarWars
 import com.mrkevin574.starwars.presentation.ui.theme.starWarsFont
 import kotlinx.coroutines.launch
 
+@OptIn(ExperimentalPagerApi::class)
 @Composable
-fun MainScreen(navController: NavHostController) {
+fun MainScreen(
+    navController: NavHostController,
+    viewModel: StarWarsViewModel = hiltViewModel()
+) {
     StarWarsTheme {
         // A surface container using the 'background' color from the theme
         Surface(
             modifier = Modifier.fillMaxSize(),
             color = MaterialTheme.colors.background
         ) {
-            HorizontalPager(navController)
+            val pagerState = rememberPagerState()
+            Scaffold(
+                bottomBar = { OptionSearch(label = "Search", onSearch = {
+                    when(pagerState.currentPage)
+                    {
+                        0 -> {
+                            viewModel.onEvent(Event.SearchFilm(it))
+                        }
+                        1 -> {
+                            viewModel.onEvent(Event.SearchPeople(it))
+                        }
+                        2 ->{
+                            viewModel.onEvent(Event.SearchPlanet(it))
+                        }
+                        3 -> {
+                            viewModel.onEvent(Event.SearchSpecie(it))
+                        }
+                        4 -> {
+                            viewModel.onEvent(Event.SearchStarship(it))
+                        }
+                        5 -> {
+                            viewModel.onEvent(Event.SearchVehicle(it))
+                        }
+                    }
+                }) }
+            ) { paddingValues ->
+                HorizontalPager(navController, paddingValues, pagerState, viewModel)
+            }
+
         }
     }
 }
@@ -40,8 +76,11 @@ fun MainScreen(navController: NavHostController) {
 
 @OptIn(ExperimentalPagerApi::class)
 @Composable
-fun HorizontalPager(navController: NavHostController) {
-    val pagerState = rememberPagerState()
+fun HorizontalPager(
+    navController: NavHostController,
+    paddingValues: PaddingValues,
+    pagerState : PagerState,
+    viewModel: StarWarsViewModel) {
     val scope = rememberCoroutineScope()
 
     val pages = listOf(
@@ -53,7 +92,9 @@ fun HorizontalPager(navController: NavHostController) {
         stringResource(R.string.vehicles)
     )
 
-    Column {
+    Column(
+        modifier = Modifier.padding(paddingValues)
+    ) {
 
         ScrollableTabRow(
             selectedTabIndex = pagerState.currentPage,
@@ -85,15 +126,33 @@ fun HorizontalPager(navController: NavHostController) {
         HorizontalPager(
             count = pages.size,
             state = pagerState,
-            modifier = Modifier.fillMaxSize()
+            modifier = Modifier.fillMaxSize().background(Black700)
         ) { page ->
             when (page) {
-                0 -> FilmScreen(navController = navController)
-                1 -> PeopleScreen(navController = navController)
-                2 -> PlanetScreen(navController = navController)
-                3 -> SpeciesScreen(navController = navController)
-                4 -> StarshipsScreen(navController = navController)
-                5 -> VehicleScreen(navController = navController)
+                0 -> FilmScreen(
+                    navController = navController,
+                    filmsState = viewModel.films.value
+                )
+                1 -> PeopleScreen(
+                    navController = navController,
+                    peopleState = viewModel.peoples.value
+                )
+                2 -> PlanetScreen(
+                    navController = navController,
+                    planetState = viewModel.planets.value
+                )
+                3 -> SpeciesScreen(
+                    navController = navController,
+                    specieState = viewModel.species.value
+                )
+                4 -> StarshipsScreen(
+                    navController = navController,
+                    starshipState = viewModel.starships.value
+                )
+                5 -> VehicleScreen(
+                    navController = navController,
+                    vehicleState = viewModel.vehicles.value
+                )
             }
         }
     }

@@ -27,43 +27,27 @@ import com.mrkevin574.starwars.util.Screens
 
 @Composable
 fun PlanetScreen(
-    viewModel: StarWarsViewModel = hiltViewModel(),
-    navController: NavHostController
+    navController: NavHostController,
+    planetState: PlanetsState
 )
 {
-    val planetState = viewModel.planets.value
-
-    Scaffold(
-        modifier = Modifier.fillMaxSize(),
-        bottomBar = {
-            OptionSearch(
-                label = stringResource(id = R.string.search_planet),
-                onSearch = { viewModel.onEvent(Event.SearchPeople(it)) }
-            )
-        },
-        content = { paddingValues ->
-            ContentPlanet(
-                paddingValues = paddingValues,
-                planetState = planetState,
-                navController = navController
-            )
-        },
-        backgroundColor = Color.Black
+    ContentPlanet(
+        planetState = planetState,
+        navController = navController
     )
 }
 
 @Composable
 fun ContentPlanet(
     planetState: PlanetsState,
-    paddingValues: PaddingValues,
     navController: NavHostController,
 ) {
     if (!planetState.error.isError && planetState.planets.isEmpty()) {
-        Loading(paddingValues)
+        Loading()
     } else if (planetState.error.isError) {
         ErrorMessageScreen(message = planetState.error.errorMessage)
     } else {
-        LazyColumn(contentPadding = paddingValues, modifier = Modifier.background(Black700))
+        LazyColumn(modifier = Modifier.background(Black700))
         {
             items(planetState.planets)
             {

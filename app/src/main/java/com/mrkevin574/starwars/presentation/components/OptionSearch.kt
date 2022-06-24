@@ -1,5 +1,6 @@
 package com.mrkevin574.starwars.presentation.components
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -15,6 +16,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.unit.sp
+import com.mrkevin574.starwars.presentation.ui.theme.Black700
 import com.mrkevin574.starwars.presentation.ui.theme.YellowStarWars
 import com.mrkevin574.starwars.presentation.ui.theme.YellowStarWarsSecondary
 import com.mrkevin574.starwars.presentation.ui.theme.starWarsFont
@@ -36,8 +38,8 @@ fun OptionSearch(label : String, onSearch: (String) -> Unit)
             color = YellowStarWarsSecondary) },
         modifier = Modifier
             .fillMaxWidth()
-            .padding(bottom = 5.dp)
-            .height(60.dp),
+            .height(60.dp)
+            .background(Black700),
         textStyle = TextStyle(
             color = YellowStarWars,
             fontFamily = starWarsFont,
