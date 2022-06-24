@@ -21,6 +21,7 @@ import com.mrkevin574.starwars.R
 import com.mrkevin574.starwars.presentation.Event
 import com.mrkevin574.starwars.presentation.StarWarsViewModel
 import com.mrkevin574.starwars.presentation.components.ErrorMessageScreen
+import com.mrkevin574.starwars.presentation.components.GeneralCard
 import com.mrkevin574.starwars.presentation.components.Loading
 import com.mrkevin574.starwars.presentation.components.OptionSearch
 import com.mrkevin574.starwars.presentation.screens.film.FilmCard
@@ -70,7 +71,7 @@ fun ContentPeople(
         {
             items(peopleState.peoples)
             {
-                PeopleCard(people = it) {
+                GeneralCard(title = it.name) {
                     val route = Screens.PeopleDetailScreen.passFilm(Uri.encode(Gson().toJson(it)))
                     navController.navigate(route)
                 }

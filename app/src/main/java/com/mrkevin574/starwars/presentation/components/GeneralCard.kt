@@ -1,4 +1,4 @@
-package com.mrkevin574.starwars.presentation.screens.people
+package com.mrkevin574.starwars.presentation.components
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
@@ -13,15 +13,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.mrkevin574.starwars.domain.model.People
 import com.mrkevin574.starwars.presentation.ui.theme.Black400
-import com.mrkevin574.starwars.presentation.ui.theme.Black700
 import com.mrkevin574.starwars.presentation.ui.theme.YellowStarWars
 import com.mrkevin574.starwars.presentation.ui.theme.starWarsFont
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
-fun PeopleCard(people: People, onClick : () -> Unit)
+fun GeneralCard(title : String, onClick : () -> Unit)
 {
     Card(
         onClick = onClick,
@@ -30,18 +28,18 @@ fun PeopleCard(people: People, onClick : () -> Unit)
             .padding(20.dp),
         border = BorderStroke(5.dp, YellowStarWars),
         elevation = 20.dp,
-        content = { ContentPeopleCard(people) }
+        content = { GeneralCardContent(title) }
     )
 }
 
 @Composable
-fun ContentPeopleCard(people: People)
+fun GeneralCardContent(title : String)
 {
     Row(
         modifier = Modifier.background(Black400)
     ) {
         Text(
-            text = people.name,
+            text = title,
             modifier = Modifier.fillMaxWidth().padding(80.dp),
             textAlign = TextAlign.Center,
             fontFamily = starWarsFont,
@@ -49,5 +47,4 @@ fun ContentPeopleCard(people: People)
             color = YellowStarWars
         )
     }
-    
 }
