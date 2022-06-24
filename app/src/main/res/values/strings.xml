@@ -54,4 +54,5 @@
     <string name="MGLT">MGLT</string>
     <string name="starship_class">Starship class</string>
     <string name="pilots">Pilots</string>
+    <string name="vehicle_class">Vehicle class</string>
 </resources>

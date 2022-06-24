@@ -51,7 +51,7 @@ fun StarshipsDetailScreen(starship: Starship)
             ComponentDetail(type = stringResource(R.string.MGLT), value = starship.MGLT)
             ComponentDetail(type = stringResource(R.string.starship_class), value = starship.starship_class)
             ComponentDetail(type = stringResource(R.string.pilots), value = if(starship.pilots.isNullOrEmpty()) stringResource(R.string.not_available) else starship.pilots.size.toString())
-            ComponentDetail(type = stringResource(R.string.pilots), value = if(starship.films.isNullOrEmpty()) stringResource(R.string.not_available) else starship.films.size.toString())
+            ComponentDetail(type = stringResource(R.string.films), value = if(starship.films.isNullOrEmpty()) stringResource(R.string.not_available) else starship.films.size.toString())
         }
 
     }
