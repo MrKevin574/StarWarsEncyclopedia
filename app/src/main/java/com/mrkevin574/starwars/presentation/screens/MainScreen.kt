@@ -87,9 +87,7 @@ fun HorizontalPager(
         stringResource(R.string.vehicles)
     )
 
-    Column(
-        modifier = Modifier.padding(paddingValues)
-    ) {
+    Column {
 
         ScrollableTabRow(
             selectedTabIndex = pagerState.currentPage,
@@ -121,7 +119,8 @@ fun HorizontalPager(
         HorizontalPager(
             count = pages.size,
             state = pagerState,
-            modifier = Modifier.fillMaxSize().background(Black700)
+            modifier = Modifier.fillMaxSize().background(Black700),
+            contentPadding = paddingValues
         ) { page ->
             when (page) {
                 0 -> GeneralContent(
