@@ -31,3 +31,28 @@ Solución del reto
 
 ![detailscreen](https://user-images.githubusercontent.com/73857138/175751337-17d4bdd4-01d1-4d48-9e54-b993fc8c8dcb.jpg)
 
+
+
+### Tecnologies: 
+ 
+
+
+<p>
+<a href="https://github.com/MrKevin574/StarWarsEncyclopedia" target="_blank">Kotlin</a>
+ </p>
+ <p>
+<a href="https://github.com/MrKevin574/StarWarsEncyclopedia" target="_blank">MVVM</a>
+ </p>
+ <p>
+<a href="https://github.com/MrKevin574/StarWarsEncyclopedia" target="_blank">Jetpack Compose</a>
+ </p>
+ <p>
+<a href="https://github.com/MrKevin574/StarWarsEncyclopedia" target="_blank">Dagger Hilt</a>
+ </p>
+ <p >
+<a href="https://github.com/MrKevin574/StarWarsEncyclopedia" target="_blank">Retrofit</a>
+ </p>
+ <p>
+<a href="https://github.com/MrKevin574/StarWarsEncyclopedia" target="_blank">Coroutines</a>
+ </p>
+
