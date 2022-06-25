@@ -1,6 +1,6 @@
 package com.mrkevin574.starwars.presentation
 
-sealed class Event()
+sealed class Event
 {
     data class SearchPeople(val people : String) : Event()
     data class SearchFilm(val film : String) : Event()

@@ -1,6 +1,5 @@
 package com.mrkevin574.starwars.presentation
 
-import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -17,126 +16,116 @@ class StarWarsViewModel @Inject constructor(
     private val repository: StarWarsRepository
 ) : ViewModel(){
 
-    private val _peoples = mutableStateOf(PeoplesState())
-    val peoples : State<PeoplesState> = _peoples
+    val peoples = mutableStateOf(GeneralState.PeoplesState())
 
-    private val _films = mutableStateOf(FilmsState())
-    val films : State<FilmsState> = _films
+    val films = mutableStateOf(GeneralState.FilmsState())
 
-    private val _planets = mutableStateOf(PlanetsState())
-    val planets : State<PlanetsState> = _planets
+    val planets = mutableStateOf(GeneralState.PlanetsState())
 
-    private val _species = mutableStateOf(SpeciesState())
-    val species : State<SpeciesState> = _species
+    val species = mutableStateOf(GeneralState.SpeciesState())
 
-    private val _starships = mutableStateOf(StarshipsState())
-    val starships : State<StarshipsState> = _starships
+    val starships = mutableStateOf(GeneralState.StarshipsState())
 
-    private val _vehicles = mutableStateOf(VehiclesState())
-    val vehicles : State<VehiclesState> = _vehicles
+    val vehicles = mutableStateOf(GeneralState.VehiclesState())
 
     init {
         viewModelScope.launch {
 
-            when(val peoplesResponse = repository.getAllPeoples())
-            {
-                is Resource.Error -> {
-                    _peoples.value = peoples.value.copy(
-                        error = ErrorStarwarsAPI(
-                            isError = true,
-                            errorMessage = peoplesResponse.message!!
-                        )
-                    )
-                }
-                is Resource.Success -> {
-                    _peoples.value = peoples.value.copy(
-                        peoples = peoplesResponse.data!!
-                    )
-                }
-            }
-
             when(val filmsResponse = repository.getAllFilms())
             {
                 is Resource.Error -> {
-                    _films.value = films.value.copy(
-                        error = ErrorStarwarsAPI(
+                    films.value = GeneralState.FilmsState(
+                        emptyList(),
+                        ErrorStarwarsAPI(
                             isError = true,
                             errorMessage = filmsResponse.message!!
                         )
                     )
                 }
                 is Resource.Success -> {
-                    _films.value = films.value.copy(
-                        films = filmsResponse.data!!
-                    )
+                    films.value = GeneralState.FilmsState(filmsResponse.data!!)
                 }
             }
+
+            when(val peoplesResponse = repository.getAllPeoples())
+            {
+                is Resource.Error -> {
+                    peoples.value = GeneralState.PeoplesState(
+                        emptyList(),
+                        ErrorStarwarsAPI(
+                            isError = true,
+                            errorMessage = peoplesResponse.message!!
+                        )
+                    )
+                }
+                is Resource.Success -> {
+                    peoples.value = GeneralState.PeoplesState(peoplesResponse.data!!)
+                }
+            }
+
+
 
             when(val planetsResponse = repository.getAllPlanets())
             {
                 is Resource.Error -> {
-                    _planets.value = planets.value.copy(
-                        error = ErrorStarwarsAPI(
+                    planets.value = GeneralState.PlanetsState(
+                        emptyList(),
+                        ErrorStarwarsAPI(
                             isError = true,
                             errorMessage = planetsResponse.message!!
                         )
                     )
                 }
                 is Resource.Success -> {
-                    _planets.value = planets.value.copy(
-                        planets = planetsResponse.data!!
-                    )
+                    planets.value = GeneralState.PlanetsState(planetsResponse.data!!)
                 }
             }
 
             when(val speciesResponse = repository.getAllSpecies())
             {
                 is Resource.Error -> {
-                    _species.value = species.value.copy(
-                        error = ErrorStarwarsAPI(
+                    species.value = GeneralState.SpeciesState(
+                        emptyList(),
+                        ErrorStarwarsAPI(
                             isError = true,
                             errorMessage = speciesResponse.message!!
                         )
                     )
                 }
                 is Resource.Success -> {
-                    _species.value = species.value.copy(
-                        species = speciesResponse.data!!
-                    )
+                    species.value = GeneralState.SpeciesState(speciesResponse.data!!)
                 }
             }
 
             when(val starshipsResponse = repository.getAllStarships())
             {
                 is Resource.Error -> {
-                    _starships.value = starships.value.copy(
-                        error = ErrorStarwarsAPI(
+                    starships.value = GeneralState.StarshipsState(
+                        emptyList(),
+                        ErrorStarwarsAPI(
                             isError = true,
                             errorMessage = starshipsResponse.message!!
                         )
                     )
                 }
                 is Resource.Success -> {
-                    _starships.value = starships.value.copy(
-                        starships = starshipsResponse.data!!
-                    )
+                    starships.value = GeneralState.StarshipsState(starshipsResponse.data!!)
                 }
             }
 
             when(val vehiclesResponse = repository.getAllVehicles())
             {
                 is Resource.Error -> {
-                    _vehicles.value = vehicles.value.copy(
-                        error = ErrorStarwarsAPI(
+                    vehicles.value = GeneralState.VehiclesState(
+                        emptyList(),
+                        ErrorStarwarsAPI(
                             isError = true,
                             errorMessage = vehiclesResponse.message!!
                         )
                     )
                 }
                 is Resource.Success -> {
-                    _vehicles.value = vehicles.value.copy(
-                        vehicles = vehiclesResponse.data!!
-                    )
+                    vehicles.value = GeneralState.VehiclesState(vehiclesResponse.data!!)
                 }
             }
 
@@ -152,18 +141,16 @@ class StarWarsViewModel @Inject constructor(
                     when(val filmsResponse = repository.searchFilm(event.film))
                     {
                         is Resource.Error -> {
-                            _films.value = films.value.copy(
-                                error = ErrorStarwarsAPI(
+                            films.value = GeneralState.FilmsState(
+                                emptyList(),
+                                ErrorStarwarsAPI(
                                     isError = true,
                                     errorMessage = filmsResponse.message!!
                                 )
                             )
                         }
                         is Resource.Success -> {
-                            _films.value = films.value.copy(
-                                films = filmsResponse.data!!,
-                                error = ErrorStarwarsAPI()
-                            )
+                            films.value = GeneralState.FilmsState(filmsResponse.data!!)
                         }
                     }
                 }
@@ -171,18 +158,16 @@ class StarWarsViewModel @Inject constructor(
                     when(val peoplesResponse = repository.searchPeople(event.people))
                     {
                         is Resource.Error -> {
-                            _peoples.value = peoples.value.copy(
-                                error = ErrorStarwarsAPI(
+                            peoples.value = GeneralState.PeoplesState(
+                                emptyList(),
+                                ErrorStarwarsAPI(
                                     isError = true,
                                     errorMessage = peoplesResponse.message!!
                                 )
                             )
                         }
                         is Resource.Success -> {
-                            _peoples.value = peoples.value.copy(
-                                peoples = peoplesResponse.data!!,
-                                error = ErrorStarwarsAPI()
-                            )
+                            peoples.value = GeneralState.PeoplesState(peoplesResponse.data!!)
                         }
                     }
                 }
@@ -190,18 +175,16 @@ class StarWarsViewModel @Inject constructor(
                     when(val planetsResponse = repository.searchPlanet(event.planet))
                     {
                         is Resource.Error -> {
-                            _planets.value = planets.value.copy(
-                                error = ErrorStarwarsAPI(
+                            planets.value = GeneralState.PlanetsState(
+                                emptyList(),
+                                ErrorStarwarsAPI(
                                     isError = true,
                                     errorMessage = planetsResponse.message!!
                                 )
                             )
                         }
                         is Resource.Success -> {
-                            _planets.value = planets.value.copy(
-                                planets = planetsResponse.data!!,
-                                error = ErrorStarwarsAPI()
-                            )
+                            planets.value = GeneralState.PlanetsState(planetsResponse.data!!)
                         }
                     }
                 }
@@ -209,18 +192,16 @@ class StarWarsViewModel @Inject constructor(
                     when(val specieResponse = repository.searchSpecie(event.specie))
                     {
                         is Resource.Error -> {
-                            _species.value = species.value.copy(
-                                error = ErrorStarwarsAPI(
+                            species.value = GeneralState.SpeciesState(
+                                emptyList(),
+                                ErrorStarwarsAPI(
                                     isError = true,
                                     errorMessage = specieResponse.message!!
                                 )
                             )
                         }
                         is Resource.Success -> {
-                            _species.value = species.value.copy(
-                                species = specieResponse.data!!,
-                                error = ErrorStarwarsAPI()
-                            )
+                            species.value = GeneralState.SpeciesState(specieResponse.data!!)
                         }
                     }
                 }
@@ -228,7 +209,8 @@ class StarWarsViewModel @Inject constructor(
                     when(val starshipsResponse = repository.searchStarship(event.starship))
                     {
                         is Resource.Error -> {
-                            _starships.value = starships.value.copy(
+                            starships.value = GeneralState.StarshipsState(
+                                emptyList(),
                                 error = ErrorStarwarsAPI(
                                     isError = true,
                                     errorMessage = starshipsResponse.message!!
@@ -236,10 +218,7 @@ class StarWarsViewModel @Inject constructor(
                             )
                         }
                         is Resource.Success -> {
-                            _starships.value = starships.value.copy(
-                                starships = starshipsResponse.data!!,
-                                error = ErrorStarwarsAPI()
-                            )
+                            starships.value = GeneralState.StarshipsState(starshipsResponse.data!!)
                         }
                     }
                 }
@@ -247,18 +226,16 @@ class StarWarsViewModel @Inject constructor(
                     when(val vehiclesResponse = repository.searchVehicle(event.vehicle))
                     {
                         is Resource.Error -> {
-                            _vehicles.value = vehicles.value.copy(
-                                error = ErrorStarwarsAPI(
+                            vehicles.value = GeneralState.VehiclesState(
+                                emptyList(),
+                                ErrorStarwarsAPI(
                                     isError = true,
                                     errorMessage = vehiclesResponse.message!!
                                 )
                             )
                         }
                         is Resource.Success -> {
-                            _vehicles.value = vehicles.value.copy(
-                                vehicles = vehiclesResponse.data!!,
-                                error = ErrorStarwarsAPI()
-                            )
+                            vehicles.value = GeneralState.VehiclesState(vehiclesResponse.data!!)
                         }
                     }
                 }

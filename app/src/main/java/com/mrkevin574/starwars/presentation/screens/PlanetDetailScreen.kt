@@ -1,4 +1,4 @@
-package com.mrkevin574.starwars.presentation.screens.planet
+package com.mrkevin574.starwars.presentation.screens
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -16,7 +16,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.mrkevin574.starwars.R
 import com.mrkevin574.starwars.domain.model.Planet
-import com.mrkevin574.starwars.presentation.screens.film.ComponentDetail
 import com.mrkevin574.starwars.presentation.ui.theme.YellowStarWars
 import com.mrkevin574.starwars.presentation.ui.theme.starWarsFont
 

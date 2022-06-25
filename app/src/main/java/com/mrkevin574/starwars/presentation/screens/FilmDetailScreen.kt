@@ -1,4 +1,4 @@
-package com.mrkevin574.starwars.presentation.screens.film
+package com.mrkevin574.starwars.presentation.screens
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*

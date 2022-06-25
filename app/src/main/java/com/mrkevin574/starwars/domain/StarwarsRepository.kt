@@ -1,6 +1,5 @@
 package com.mrkevin574.starwars.domain
 
-import android.util.AndroidRuntimeException
 import com.mrkevin574.starwars.data.repository.StarWarsProvider
 import com.mrkevin574.starwars.data.repository.model.toDomain
 import com.mrkevin574.starwars.domain.model.*

@@ -15,13 +15,8 @@ import com.google.accompanist.pager.HorizontalPager
 import com.mrkevin574.starwars.R
 import com.mrkevin574.starwars.presentation.Event
 import com.mrkevin574.starwars.presentation.StarWarsViewModel
+import com.mrkevin574.starwars.presentation.components.GeneralContent
 import com.mrkevin574.starwars.presentation.components.OptionSearch
-import com.mrkevin574.starwars.presentation.screens.film.FilmScreen
-import com.mrkevin574.starwars.presentation.screens.people.PeopleScreen
-import com.mrkevin574.starwars.presentation.screens.planet.PlanetScreen
-import com.mrkevin574.starwars.presentation.screens.species.SpeciesScreen
-import com.mrkevin574.starwars.presentation.screens.starships.StarshipsScreen
-import com.mrkevin574.starwars.presentation.screens.vehicles.VehicleScreen
 import com.mrkevin574.starwars.presentation.ui.theme.Black700
 import com.mrkevin574.starwars.presentation.ui.theme.StarWarsTheme
 import com.mrkevin574.starwars.presentation.ui.theme.YellowStarWars
@@ -129,29 +124,29 @@ fun HorizontalPager(
             modifier = Modifier.fillMaxSize().background(Black700)
         ) { page ->
             when (page) {
-                0 -> FilmScreen(
+                0 -> GeneralContent(
                     navController = navController,
-                    filmsState = viewModel.films.value
+                    state = viewModel.films.value
                 )
-                1 -> PeopleScreen(
+                1 -> GeneralContent(
                     navController = navController,
-                    peopleState = viewModel.peoples.value
+                    state = viewModel.peoples.value
                 )
-                2 -> PlanetScreen(
+                2 -> GeneralContent(
                     navController = navController,
-                    planetState = viewModel.planets.value
+                    state = viewModel.planets.value
                 )
-                3 -> SpeciesScreen(
+                3 -> GeneralContent(
                     navController = navController,
-                    specieState = viewModel.species.value
+                    state = viewModel.species.value
                 )
-                4 -> StarshipsScreen(
+                4 -> GeneralContent(
                     navController = navController,
-                    starshipState = viewModel.starships.value
+                    state = viewModel.starships.value
                 )
-                5 -> VehicleScreen(
+                5 -> GeneralContent(
                     navController = navController,
-                    vehicleState = viewModel.vehicles.value
+                    state = viewModel.vehicles.value
                 )
             }
         }

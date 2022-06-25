@@ -8,12 +8,12 @@ import androidx.navigation.compose.rememberNavController
 import com.google.gson.Gson
 import com.mrkevin574.starwars.domain.model.*
 import com.mrkevin574.starwars.presentation.screens.MainScreen
-import com.mrkevin574.starwars.presentation.screens.film.FilmDetailScreen
-import com.mrkevin574.starwars.presentation.screens.people.PeopleDetailScreen
-import com.mrkevin574.starwars.presentation.screens.planet.PlanetDetailScreen
-import com.mrkevin574.starwars.presentation.screens.species.SpeciesDetailScreen
-import com.mrkevin574.starwars.presentation.screens.starships.StarshipsDetailScreen
-import com.mrkevin574.starwars.presentation.screens.vehicles.VehiclesDetailScreen
+import com.mrkevin574.starwars.presentation.screens.FilmDetailScreen
+import com.mrkevin574.starwars.presentation.screens.PeopleDetailScreen
+import com.mrkevin574.starwars.presentation.screens.PlanetDetailScreen
+import com.mrkevin574.starwars.presentation.screens.SpeciesDetailScreen
+import com.mrkevin574.starwars.presentation.screens.StarshipsDetailScreen
+import com.mrkevin574.starwars.presentation.screens.VehiclesDetailScreen
 import com.mrkevin574.starwars.util.Screens
 
 @Composable
